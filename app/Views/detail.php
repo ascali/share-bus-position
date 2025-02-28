@@ -607,7 +607,7 @@
             }, 1000);
             // await getData(gps_sn,true);
 
-            baseUrlNgiGps = `<?= getenv('prop.BASE_URL_NGI_GPS') ?>:8448`;
+            baseUrlNgiGps = `https://gps.brtnusantara.com:8448`;
             socket = io(baseUrlNgiGps,{secure:true,transports : ['websocket']});
             socket.on("connection", (socket) => {
                 console.info(socket.handshake.headers);
@@ -709,11 +709,7 @@
             });
 
             socket.on('new message jtm', function(ret){
-                // console.log("🚀 ~ socket.on ~ ret 1:", ret)
-                if (ret.imei === "351742102268259") {
-                    console.log("🚀 ~ socket.on ~ ret 2:", ret)
-                    // updateMarker(ret);
-                }
+                console.log("🚀 ~ socket.on ~ ret 1:", ret)
             });
 
             // socket.on("{{ $data['route_type'] }}-{{ $data['gps_sn'] ?>", async function(message) {

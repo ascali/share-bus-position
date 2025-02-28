@@ -125,7 +125,7 @@
                 return;
             }
             let param = first+two+three;
-            window.location.href = "<?= base_url() ?>/lacak_bus?plate="+param+"";
+            window.location.href = "<?= base_url() ?>lacak_bus?plate="+param+"";
         }
     </script>
 </body>
