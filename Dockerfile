@@ -19,29 +19,16 @@ RUN apt-get update && apt-get install -y \
     && pecl install mailparse \
     && docker-php-ext-enable mailparse \
     # gd
-    && apt-get install -y build-essential nginx openssl libfreetype6-dev libjpeg-dev libpng-dev libwebp-dev zlib1g-dev libzip-dev gcc g++ make vim unzip curl git jpegoptim optipng pngquant gifsicle locales libonig-dev  \
+    && apt-get install -y build-essential nginx openssl libfreetype6-dev libjpeg-dev libpng-dev libwebp-dev zlib1g-dev libzip-dev libicu-dev gcc g++ make vim unzip curl git jpegoptim optipng pngquant gifsicle locales libonig-dev  \
     && docker-php-ext-configure gd  \
     && docker-php-ext-install gd \
     # gmp
     && apt-get install -y --no-install-recommends libgmp-dev \
-    && docker-php-ext-install gmp \
-    # pdo_mysql
-    # && docker-php-ext-install pdo_mysql mbstring \
-    && docker-php-ext-install mbstring \
-    # pdo
-    && docker-php-ext-install pdo \
     # opcache
     && docker-php-ext-enable opcache \
-    # exif
-    && docker-php-ext-install exif \
-    && docker-php-ext-install sockets \
-    && docker-php-ext-install pcntl \
-    && docker-php-ext-install bcmath \
+    && docker-php-ext-install gmp pdo mbstring exif sockets pcntl bcmath \
     # khusus ci
-    && docker-php-ext-install pdo_mysql mysqli intl \
-    # zip
-    && docker-php-ext-install zip \
-    && apt-get autoclean -y
+    && docker-php-ext-install pdo_mysql mysqli zip intl \
 
 # Install Composer
 # COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
