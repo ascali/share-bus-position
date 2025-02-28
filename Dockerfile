@@ -41,8 +41,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mysqli intl \
     # zip
     && docker-php-ext-install zip \
-    && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/* 
+    && apt-get autoclean -y
 
 # Install Composer
 # COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
