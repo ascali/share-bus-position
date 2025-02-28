@@ -28,14 +28,14 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable opcache \
     && docker-php-ext-install gmp pdo mbstring exif sockets pcntl bcmath \
     # khusus ci
-    && docker-php-ext-install pdo_mysql mysqli zip intl \
+    && docker-php-ext-install pdo_mysql mysqli zip intl 
 
 # Install Composer
 # COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Configure Apache
+
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite ssl # Enable SSL module
     
