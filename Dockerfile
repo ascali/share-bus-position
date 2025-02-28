@@ -31,9 +31,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mysqli zip intl 
 
 # Install Composer
-# COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
@@ -48,7 +48,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install dependencies
-# RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html && chmod -R 775 /var/www/html/writable && chmod -R 775 /var/www/html/public
