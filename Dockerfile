@@ -75,3 +75,4 @@ RUN chmod +x /usr/local/bin/renew-certs.sh
 
 # Add cron job for auto-renew
 RUN echo "0 0 * * * /usr/local/bin/renew-certs.sh" | crontab -
+    
