@@ -64,7 +64,7 @@ COPY . .
 # RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www && chmod -R 775 /var/www/writable && chmod -R 775 /var/www/public
+RUN chown -R www-data:www-data /var/www/html && chmod -R 775 /var/www/html/writable && chmod -R 775 /var/www/html/public
 
 # Copy PHP configuration file for SMTP
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
