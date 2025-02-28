@@ -38,8 +38,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pcntl \
     && docker-php-ext-install bcmath \
     # khusus ci
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mysqli gd zip intl \
+    && docker-php-ext-install pdo_mysql mysqli intl \
     # zip
     && docker-php-ext-install zip \
     && apt-get autoclean -y \
