@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    tty: true
+    ports:
+      - "80:80"   # HTTP
+      - "443:443" # HTTPS
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt # Volume untuk menyimpan sertifikat
+      - ./ssl:/etc/ssl # Volume untuk menyimpan file SSL
+    networks:
+      - lumen-network
+
+networks:
+  lumen-network:
