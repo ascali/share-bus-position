@@ -42,8 +42,7 @@ RUN apt-get update && apt-get install -y \
     # zip
     && docker-php-ext-install zip \
     && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/pear/
+    && rm -rf /var/lib/apt/lists/* 
 
 # Install Composer
 # COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
